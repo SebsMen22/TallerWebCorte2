@@ -1,16 +1,14 @@
-// --- 1. Lógica del Modo Oscuro ---
+// --------- Lógica Modo Oscuro ---------
 const btnTheme = document.getElementById('btnTheme');
 
 btnTheme.addEventListener('click', () => {
-    // Alterna la clase 'dark-mode' en el body
     document.body.classList.toggle('dark-mode');
 
-    // Verifica si la clase existe para cambiar el texto del botón
     const isDarkMode = document.body.classList.contains('dark-mode');
     btnTheme.textContent = isDarkMode ? 'Modo Claro' : 'Modo Oscuro';
 });
 
-// --- 2. Lógica de los Contadores de Likes Independientes ---
+// --------- Lógica Contadores de Likes Independientes ---------
 const likeButtons = document.querySelectorAll('.btn-like');
 
 likeButtons.forEach(button => {
@@ -24,7 +22,7 @@ likeButtons.forEach(button => {
     });
 });
 
-// --- 3. Formulario, DOM y Librerías CDN ---
+// --------- Formulario, DOM y Librerías CDN ---------
 const formFeedback = document.getElementById('formFeedback');
 const inputAutor = document.getElementById('autor');
 const selectProyecto = document.getElementById('proyecto');
@@ -81,7 +79,7 @@ function validarFormulario(autor, proyecto, comentario) {
     return { errores, primerCampoInvalido };
 }
 
-// Crea el nodo de comentario con createElement y lo agrega con appendChild
+// Comentario con createElement y agrega con apendChild
 function agregarComentario(autor, proyecto, comentario) {
     const tarjeta = document.createElement('div');
     tarjeta.classList.add('comment-card');
@@ -90,7 +88,7 @@ function agregarComentario(autor, proyecto, comentario) {
     titulo.textContent = `${autor} sobre "${proyecto}"`;
 
     const texto = document.createElement('p');
-    texto.textContent = comentario; // textContent evita inyección de HTML
+    texto.textContent = comentario;
 
     const fecha = document.createElement('small');
     fecha.classList.add('empty-msg');
@@ -102,7 +100,7 @@ function agregarComentario(autor, proyecto, comentario) {
 
     comentariosContainer.appendChild(tarjeta);
 
-    // Oculta el mensaje de lista vacía
+    // Mensaje de lista vacía
     sinComentarios.style.display = 'none';
 }
 
@@ -134,11 +132,11 @@ formFeedback.addEventListener('submit', (event) => {
         return;
     }
 
-    // Todo válido: publicar el comentario en el DOM
+    // Todo válido
     agregarComentario(autor, proyecto, comentario);
     formFeedback.reset();
 
-    // Modal de éxito + confeti
+    // Modal de éxito
     Swal.fire({
         icon: 'success',
         title: '¡Valoración publicada!',
