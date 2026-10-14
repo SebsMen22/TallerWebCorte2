@@ -1,3 +1,7 @@
+//----------------Integrantes----------------
+// Sebastian Meneses Molina 2240311 Estudiante A
+// Julian Sanchez Pasaje 2235586 Estudiante B
+
 // --------- Lógica Modo Oscuro ---------
 const btnTheme = document.getElementById('btnTheme');
 
@@ -8,11 +12,10 @@ btnTheme.addEventListener('click', () => {
     btnTheme.textContent = isDarkMode ? 'Modo Claro' : 'Modo Oscuro';
 });
 
-// --------- Lógica Contadores de Likes Independientes ---------
+// --------- Logica Contadores likes
 const likeButtons = document.querySelectorAll('.btn-like');
 
-likeButtons.forEach(button => {
-    // Variable local para mantener el contador independiente de cada tarjeta
+likeButtons.forEach(button => {   // variable para mantenerr el conteo de likes aparte
     let count = 0;
     const countSpan = button.querySelector('.like-count');
 
@@ -22,7 +25,8 @@ likeButtons.forEach(button => {
     });
 });
 
-// --------- Formulario, DOM y Librerías CDN ---------
+// --------- Formulario, DOM y Librerías CDN 
+
 const formFeedback = document.getElementById('formFeedback');
 const inputAutor = document.getElementById('autor');
 const selectProyecto = document.getElementById('proyecto');
@@ -150,5 +154,54 @@ formFeedback.addEventListener('submit', (event) => {
         particleCount: 150,
         spread: 80,
         origin: { y: 0.6 }
+    });
+});
+
+
+// =====================================================================
+// --------- NUEVAS ANIMACIONES AÑADIDAS SIN TOCAR LO ANTERIOR ---------
+// =====================================================================
+
+likeButtons.forEach(button => {
+    button.addEventListener('click', (evento) => {
+        // 1. Transición suave (efecto latido) en el botón
+        button.animate([
+            { transform: 'scale(1)' },
+            { transform: 'scale(1.15)' },
+            { transform: 'scale(1)' }
+        ], {
+            duration: 300,
+            easing: 'ease-in-out'
+        });
+
+        // 2. Lógica para el corazón rojo flotante
+        const corazonFlotante = document.createElement('span');
+        corazonFlotante.textContent = '❤️';
+        
+        // Estilos para que se posicione y no interrumpa clics
+        corazonFlotante.style.position = 'fixed';
+        corazonFlotante.style.fontSize = '28px';
+        corazonFlotante.style.pointerEvents = 'none';
+        corazonFlotante.style.zIndex = '9999';
+
+        // Posicionar el emoji exactamente donde el usuario hizo clic
+        corazonFlotante.style.left = `${evento.clientX - 15}px`;
+        corazonFlotante.style.top = `${evento.clientY - 20}px`;
+
+        document.body.appendChild(corazonFlotante);
+
+        // Animar el corazón subiendo y desapareciendo
+        const animacionCorazon = corazonFlotante.animate([
+            { transform: 'translateY(0) scale(1)', opacity: 1 },
+            { transform: 'translateY(-60px) scale(1.5)', opacity: 0 }
+        ], {
+            duration: 800,
+            easing: 'ease-out'
+        });
+
+        // Eliminar el corazón del HTML cuando la animación termine
+        animacionCorazon.onfinish = () => {
+            corazonFlotante.remove();
+        };
     });
 });

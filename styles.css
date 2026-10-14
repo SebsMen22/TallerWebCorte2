@@ -6,16 +6,16 @@
 
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f5f9;
-    color: #2d3748;
+    background-color: #f3e8ff; /* Fondo morado muy claro */
+    color: #2d2438; /* Texto oscuro con tinte morado */
     line-height: 1.6;
     padding: 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode {
-    background-color: #1a202c;
-    color: #edf2f7;
+    background-color: #1a1625; /* Fondo oscuro morado */
+    color: #f4effa; /* Texto claro */
 }
 
 /* ---------- Encabezado ---------- */
@@ -24,24 +24,27 @@ body.dark-mode {
     max-width: 1000px;
     margin: 0 auto 35px auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    border-bottom: 3px solid #bee3f8;
+    flex-direction: column; /* Coloca el título y el botón uno debajo del otro */
+    justify-content: center; /* Centra el contenido */
+    align-items: center; /* Alinea todo al medio */
+    border-bottom: 3px solid #e9d8fd; /* Borde inferior claro */
     padding-bottom: 15px;
+    gap: 15px;
 }
 
 .header-container h1 {
     font-size: clamp(22px, 4vw, 32px);
-    color: #2b6cb0;
+    color: #6b46c1; /* Morado intenso */
+    text-align: center; /* Asegura que el texto esté 100% centrado */
+    width: 100%;
 }
 
 body.dark-mode .header-container {
-    border-bottom-color: #2c5282;
+    border-bottom-color: #553c9a;
 }
 
 body.dark-mode .header-container h1 {
-    color: #63b3ed;
+    color: #b794f4; /* Morado claro para modo oscuro */
 }
 
 .main-container {
@@ -56,11 +59,11 @@ body.dark-mode .header-container h1 {
 .section h2 {
     font-size: 22px;
     padding-left: 12px;
-    border-left: 5px solid #3182ce;
+    border-left: 5px solid #805ad5; /* Borde izquierdo morado principal */
 }
 
 body.dark-mode .section h2 {
-    border-left-color: #63b3ed;
+    border-left-color: #b794f4;
 }
 
 /* ---------- Tarjetas ---------- */
@@ -74,32 +77,32 @@ body.dark-mode .section h2 {
 
 .card {
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-top: 4px solid #3182ce;
+    border: 1px solid #e9e3f5;
+    border-top: 4px solid #805ad5; /* Borde superior morado */
     border-radius: 14px;
     padding: 22px;
-    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.08);
+    box-shadow: 0 4px 12px rgba(128, 90, 213, 0.08); /* Sombra morada suave */
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(49, 130, 206, 0.18);
+    box-shadow: 0 10px 24px rgba(128, 90, 213, 0.18);
 }
 
 .card h3 {
     margin-bottom: 8px;
-    color: #2b6cb0;
+    color: #6b46c1;
 }
 
 body.dark-mode .card {
-    background-color: #2d3748;
-    border-color: #4a5568;
-    border-top-color: #63b3ed;
+    background-color: #261f33; /* Tarjeta oscura morada */
+    border-color: #4f4360;
+    border-top-color: #b794f4;
 }
 
 body.dark-mode .card h3 {
-    color: #90cdf4;
+    color: #d6bcfa;
 }
 
 /* ---------- Formulario ---------- */
@@ -109,11 +112,11 @@ body.dark-mode .card h3 {
     padding: 28px;
     border-radius: 14px;
     margin-top: 18px;
-    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.08);
+    box-shadow: 0 4px 12px rgba(128, 90, 213, 0.08);
 }
 
 body.dark-mode .feedback-form {
-    background: #2d3748;
+    background: #261f33;
 }
 
 .form-group {
@@ -131,7 +134,7 @@ body.dark-mode .feedback-form {
 .form-group textarea {
     width: 100%;
     padding: 11px 12px;
-    border: 2px solid #cbd5e0;
+    border: 2px solid #d3cbe0;
     border-radius: 10px;
     background-color: #fff;
     color: inherit;
@@ -144,22 +147,22 @@ body.dark-mode .feedback-form {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #3182ce;
-    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+    border-color: #805ad5;
+    box-shadow: 0 0 0 3px rgba(128, 90, 213, 0.2);
 }
 
 body.dark-mode .form-group input,
 body.dark-mode .form-group select,
 body.dark-mode .form-group textarea {
-    background-color: #1a202c;
-    border-color: #4a5568;
+    background-color: #1a1625;
+    border-color: #4f4360;
 }
 
 body.dark-mode .form-group input:focus,
 body.dark-mode .form-group select:focus,
 body.dark-mode .form-group textarea:focus {
-    border-color: #63b3ed;
-    box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.25);
+    border-color: #b794f4;
+    box-shadow: 0 0 0 3px rgba(183, 148, 244, 0.25);
 }
 
 /* ---------- Botones ---------- */
@@ -183,31 +186,31 @@ button:active {
 }
 
 .btn-primary {
-    background-color: #3182ce;
+    background-color: #805ad5; /* Botón principal morado */
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #2b6cb0;
+    background-color: #6b46c1; /* Hover más oscuro */
 }
 
 .btn-secondary {
-    background-color: #4a5568;
+    background-color: #4f4360; /* Botón secundario */
     color: white;
 }
 
 .btn-secondary:hover {
-    background-color: #2d3748;
+    background-color: #3b2e45;
 }
 
 .btn-like {
-    background-color: #fed7d7;
-    color: #9b2c2c;
+    background-color: #fee2e2; /* Fondo rojito claro */
+    color: #dc2626; /* Color rojo para el texto */
     margin-top: 12px;
 }
 
 .btn-like:hover {
-    background-color: #feb2b2;
+    background-color: #fecaca; /* Rojo un poco más oscuro al pasar el mouse */
 }
 
 /* ---------- Comentarios ---------- */
@@ -218,7 +221,7 @@ button:active {
 
 .comment-card {
     background: #ffffff;
-    border-left: 5px solid #3182ce;
+    border-left: 5px solid #805ad5;
     padding: 16px 18px;
     border-radius: 10px;
     margin-top: 12px;
@@ -228,7 +231,7 @@ button:active {
 
 .comment-card h4 {
     margin-bottom: 4px;
-    color: #2b6cb0;
+    color: #6b46c1;
 }
 
 .comment-card small {
@@ -237,16 +240,16 @@ button:active {
 }
 
 body.dark-mode .comment-card {
-    background: #2d3748;
-    border-left-color: #63b3ed;
+    background: #261f33;
+    border-left-color: #b794f4;
 }
 
 body.dark-mode .comment-card h4 {
-    color: #90cdf4;
+    color: #d6bcfa;
 }
 
 .empty-msg {
-    color: #718096;
+    color: #7e708f;
     font-style: italic;
     margin-top: 10px;
 }
@@ -257,13 +260,13 @@ footer {
     text-align: center;
     margin-top: 50px;
     padding-top: 20px;
-    border-top: 1px solid #cbd5e0;
-    color: #718096;
+    border-top: 1px solid #d3cbe0;
+    color: #7e708f;
     font-size: 14px;
 }
 
 body.dark-mode footer {
-    border-top-color: #4a5568;
+    border-top-color: #4f4360;
 }
 
 /* ---------- Animación de entrada para nuevos comentarios ---------- */
@@ -288,7 +291,7 @@ body.dark-mode footer {
 
     .header-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
     .feedback-form {
